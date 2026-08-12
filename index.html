@@ -83,7 +83,7 @@
   .value-prop{max-width:640px; font-size:16px; color:var(--ink);}
 
   .status-strip{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:28px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px;
   }
   .status-card{
     background:var(--paper); border:1px solid var(--line); border-radius:8px;
@@ -141,8 +141,9 @@
 
   footer{padding:48px 0 70px; border-top:1px solid var(--line);}
   footer .card{font-size:13px; color:var(--muted);}
-  .skills-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:8px;}
+  .skills-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:8px;}
   @media (max-width:820px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (min-width:821px) and (max-width:1000px){.skills-grid{grid-template-columns:repeat(3,1fr);}}
   .skill{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px;}
   .skill .k{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
   .skill .v{font-size:13px; color:var(--muted);}
@@ -158,6 +159,8 @@
       <a href="#routing">Lead Routing</a>
       <a href="#performance">Performance Analysis</a>
       <a href="#budget">Budget Allocation</a>
+      <a href="#channel">Channel Strategy</a>
+      <a href="#migration">Website Migration</a>
       <a href="#skills">Skills</a>
     </div>
   </div>
@@ -191,6 +194,14 @@
         <a class="status-card" href="#budget">
           <div class="pill"><span class="dot"></span> RESOLVED</div>
           <div class="title">Budget Allocation Optimization</div>
+        </a>
+        <a class="status-card" href="#channel">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Product Launch Channel Strategy</div>
+        </a>
+        <a class="status-card" href="#migration">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Website Redesign &amp; Migration</div>
         </a>
       </div>
     </div>
@@ -444,14 +455,180 @@
     </div>
   </section>
 
+  <!-- CASE 5: CHANNEL STRATEGY -->
+  <section class="case" id="channel">
+    <span class="case-num">CASE STUDY 05</span>
+    <div class="case-head">
+      <h2>Channel Strategy for a New Product Launch</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>A B2B software company was launching a new self-service pricing tool to its existing customer base. The audience wasn't one group — some customers already showed high product engagement, some were active but hadn't touched adjacent features, and some were dormant. A single blast announcement would under-serve all three.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Built a three-phase channel plan — pre-launch awareness, launch push, post-launch sustain — with channel mix and messaging weighted by segment, and budget allocated toward the channels each segment historically responded to rather than split evenly.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Target audience segments</div>
+    <div class="card">
+      <table>
+        <tr><th>Segment</th><th>Definition</th><th class="num">Addressable size</th><th>Primary channel</th></tr>
+        <tr><td>High-engagement</td><td>Active weekly, using 3+ product areas</td><td class="num">~9,200 accounts</td><td>In-app + email</td></tr>
+        <tr><td>Active, unadopted</td><td>Active monthly, hasn't used adjacent tools</td><td class="num">~14,600 accounts</td><td>Email + paid social</td></tr>
+        <tr><td>Dormant</td><td>No login in 60+ days</td><td class="num">~6,100 accounts</td><td>Email re-engagement</td></tr>
+      </table>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Three-phase channel plan</div>
+    <div class="card">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="270" height="70" rx="7" class="flow-box accent"/>
+        <text x="145" y="32" text-anchor="middle" class="flow-text">01 · Pre-Launch Awareness</text>
+        <text x="145" y="50" text-anchor="middle" class="flow-label">Email teaser · in-app banner</text>
+        <text x="145" y="64" text-anchor="middle" class="flow-label">Goal: build anticipation, no CTA yet</text>
+
+        <rect x="305" y="10" width="270" height="70" rx="7" class="flow-box accent"/>
+        <text x="440" y="32" text-anchor="middle" class="flow-text">02 · Launch Push</text>
+        <text x="440" y="50" text-anchor="middle" class="flow-label">Email + paid social + in-app CTA</text>
+        <text x="440" y="64" text-anchor="middle" class="flow-label">Goal: drive first use, segment CTAs</text>
+
+        <rect x="600" y="10" width="270" height="70" rx="7" class="flow-box accent"/>
+        <text x="735" y="32" text-anchor="middle" class="flow-text">03 · Post-Launch Sustain</text>
+        <text x="735" y="50" text-anchor="middle" class="flow-label">Re-engagement email + product tips</text>
+        <text x="735" y="64" text-anchor="middle" class="flow-label">Goal: convert trial use to habit</text>
+
+        <path d="M280,45 L305,45" class="flow-arrow"/>
+        <path d="M575,45 L600,45" class="flow-arrow"/>
+
+        <text x="10" y="112" class="flow-label">CHANNEL WEIGHTING BY SEGMENT</text>
+        <rect x="10" y="122" width="270" height="110" rx="7" class="flow-box"/>
+        <text x="145" y="144" text-anchor="middle" class="flow-text">High-engagement</text>
+        <text x="145" y="162" text-anchor="middle" class="flow-label">In-app: 50% · Email: 35%</text>
+        <text x="145" y="178" text-anchor="middle" class="flow-label">Paid social: 15%</text>
+
+        <rect x="305" y="122" width="270" height="110" rx="7" class="flow-box"/>
+        <text x="440" y="144" text-anchor="middle" class="flow-text">Active, unadopted</text>
+        <text x="440" y="162" text-anchor="middle" class="flow-label">Email: 45% · Paid social: 35%</text>
+        <text x="440" y="178" text-anchor="middle" class="flow-label">In-app: 20%</text>
+
+        <rect x="600" y="122" width="270" height="110" rx="7" class="flow-box"/>
+        <text x="735" y="144" text-anchor="middle" class="flow-text">Dormant</text>
+        <text x="735" y="162" text-anchor="middle" class="flow-label">Email re-engagement: 80%</text>
+        <text x="735" y="178" text-anchor="middle" class="flow-label">Paid social retarget: 20%</text>
+      </svg>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Weighting channel mix by segment instead of running one blast meant high-engagement users got the low-friction in-app nudge that actually moves them, while dormant accounts got the heavier-touch re-engagement email sequence they needed — projected to lift 60-day adoption meaningfully above a single-channel launch.</p>
+    </div>
+  </section>
+
+  <!-- CASE 6: WEBSITE MIGRATION -->
+  <section class="case" id="migration">
+    <span class="case-num">CASE STUDY 06</span>
+    <div class="case-head">
+      <h2>Website Redesign &amp; Legacy Platform Migration</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>A company's customer-facing web portal was rebuilt on new infrastructure with a redesigned experience. The hard part wasn't the build — it was migrating an active user base off the legacy site on a hard decommission date without disrupting people mid-workflow.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Paired a phased technical rollout (beta → pre-launch → general availability → legacy sunset) with a three-step communications plan that moved users from awareness to action to urgency — using in-app messaging, email, and on-site banners, so no one hit a dead link on decommission day.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Rollout timeline</div>
+    <div class="card">
+      <svg viewBox="0 0 880 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40,65 L840,65" stroke="#D8DEE3" stroke-width="2"/>
+        <circle cx="80" cy="65" r="6" fill="#2E7D6B"/>
+        <text x="80" y="40" text-anchor="middle" class="flow-text">Beta</text>
+        <text x="80" y="95" text-anchor="middle" class="flow-label">Weeks 1–4</text>
+
+        <circle cx="280" cy="65" r="6" fill="#2E7D6B"/>
+        <text x="280" y="40" text-anchor="middle" class="flow-text">Pre-Launch</text>
+        <text x="280" y="95" text-anchor="middle" class="flow-label">Week 6</text>
+
+        <circle cx="480" cy="65" r="6" fill="#2E7D6B"/>
+        <text x="480" y="40" text-anchor="middle" class="flow-text">General Availability</text>
+        <text x="480" y="95" text-anchor="middle" class="flow-label">Week 7</text>
+
+        <circle cx="660" cy="65" r="6" fill="#C99A2E"/>
+        <text x="660" y="40" text-anchor="middle" class="flow-text">Legacy Comms Begin</text>
+        <text x="660" y="95" text-anchor="middle" class="flow-label">Week 15</text>
+
+        <circle cx="820" cy="65" r="6" fill="#C1503F"/>
+        <text x="820" y="40" text-anchor="middle" class="flow-text">Decommission</text>
+        <text x="820" y="95" text-anchor="middle" class="flow-label">Week 34</text>
+      </svg>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Legacy migration communications plan</div>
+    <div class="card">
+      <svg viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="270" height="90" rx="7" class="flow-box accent"/>
+        <text x="145" y="34" text-anchor="middle" class="flow-text">Step 1 · Awareness</text>
+        <text x="145" y="54" text-anchor="middle" class="flow-label">In-app + email + banner</text>
+        <text x="145" y="70" text-anchor="middle" class="flow-label">Introduce the new site —</text>
+        <text x="145" y="84" text-anchor="middle" class="flow-label">no sunset date mentioned yet</text>
+
+        <rect x="305" y="10" width="270" height="90" rx="7" class="flow-box accent"/>
+        <text x="440" y="34" text-anchor="middle" class="flow-text">Step 2 · Highlight Benefits</text>
+        <text x="440" y="54" text-anchor="middle" class="flow-label">Email + targeted in-app</text>
+        <text x="440" y="70" text-anchor="middle" class="flow-label">Message users based on the</text>
+        <text x="440" y="84" text-anchor="middle" class="flow-label">specific actions they take on legacy</text>
+
+        <rect x="600" y="10" width="270" height="90" rx="7" class="flow-box risk"/>
+        <text x="735" y="34" text-anchor="middle" class="flow-text">Step 3 · Countdown &amp; Sunset</text>
+        <text x="735" y="54" text-anchor="middle" class="flow-label">Static banner + frequent nudges</text>
+        <text x="735" y="70" text-anchor="middle" class="flow-label">Dated CTA, targeted only at</text>
+        <text x="735" y="84" text-anchor="middle" class="flow-label">still-active legacy users</text>
+
+        <path d="M280,55 L305,55" class="flow-arrow"/>
+        <path d="M575,55 L600,55" class="flow-arrow"/>
+      </svg>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Migration progress</div>
+    <div class="card">
+      <table>
+        <tr><th>Milestone</th><th class="num">Legacy site active users</th><th class="num">New site adoption</th></tr>
+        <tr><td>Week 7 (GA)</td><td class="num">100%</td><td class="num">0%</td></tr>
+        <tr><td>Week 15 (comms begin)</td><td class="num">78%</td><td class="num">22%</td></tr>
+        <tr><td>Week 24 (highlight benefits)</td><td class="num">41%</td><td class="num">59%</td></tr>
+        <tr><td>Week 32 (countdown)</td><td class="num">9%</td><td class="num">91%</td></tr>
+        <tr><td>Week 34 (decommission)</td><td class="num">0%</td><td class="num">100%</td></tr>
+      </table>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Sequencing the message — awareness before benefits before urgency — and targeting the sunset warning only at users still on the legacy platform meant the decommission date arrived with the migration essentially complete, instead of forcing a disruptive cutover.</p>
+    </div>
+  </section>
+
   <section id="skills" style="padding:56px 0; border-top:1px solid var(--line);">
     <div class="block-label">T-shaped skill set</div>
     <h2 style="margin-bottom:6px;">Marketing, backed by data, technology, and operations</h2>
     <p style="max-width:640px; color:var(--muted); margin-top:0;">The common thread across these case studies: understanding the marketing problem, then using data, systems, and process design to actually fix it.</p>
     <div class="skills-grid">
-      <div class="skill"><div class="k">Marketing</div><div class="v">Campaigns, channels, stakeholders, objectives</div></div>
-      <div class="skill"><div class="k">Data</div><div class="v">Performance analysis, root-cause diagnosis</div></div>
+      <div class="skill"><div class="k">Marketing</div><div class="v">Campaigns, channel strategy, phased launches</div></div>
+      <div class="skill"><div class="k">Data</div><div class="v">Performance analysis, root-cause diagnosis, segmentation</div></div>
       <div class="skill"><div class="k">Technology</div><div class="v">Marketing Cloud, CRM, SQL, automation</div></div>
+      <div class="skill"><div class="k">Digital &amp; Web</div><div class="v">Site redesign, platform migration, comms sequencing</div></div>
       <div class="skill"><div class="k">Operations</div><div class="v">Process design, QA, governance</div></div>
       <div class="skill"><div class="k">Leadership</div><div class="v">Coordinating stakeholders &amp; agencies</div></div>
     </div>
