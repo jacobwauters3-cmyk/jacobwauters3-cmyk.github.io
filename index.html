@@ -207,11 +207,11 @@
     <div class="two-col">
       <div>
         <div class="block-label">Problem</div>
-        <p>A B2B email program running 40 automated journeys to 250,000 contacts had a 3–4% average error / rework rate — wrong segments, broken personalization, mistimed sends — caused by manual builds, no standard intake process, and QA that happened after launch instead of before.</p>
+        <p>The standard way to keep an automated journey running past its expiration was to copy it and activate the copy. But copying a journey silently reset its contact deduplication rules — a behavior newer team members had no way of knowing about. When they copied and relaunched expired journeys, contacts who had already received that email were sent it again.</p>
       </div>
       <div>
         <div class="block-label">Approach</div>
-        <p>Mapped the current build process end-to-end, identified where errors actually originated, then redesigned the workflow around pre-launch checkpoints instead of post-launch fixes — with a standardized intake form, defined ownership at each stage, and automated QA rules where possible.</p>
+        <p>Built a standard operating procedure for journey expiration that made the deduplication reset explicit and non-optional, then added automated QA checks — flags that catch when a contact has already been sent a given email — so the system catches the risk before send, not after.</p>
       </div>
     </div>
 
@@ -222,41 +222,35 @@
           <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5A6B78"/></marker>
         </defs>
         <text x="10" y="18" class="flow-label">CURRENT STATE</text>
-        <rect x="10" y="28" width="140" height="46" rx="7" class="flow-box"/>
-        <text x="80" y="56" text-anchor="middle" class="flow-text">Ad-hoc request</text>
-        <path d="M150,51 L190,51" class="flow-arrow"/>
-        <rect x="192" y="28" width="140" height="46" rx="7" class="flow-box risk"/>
-        <text x="262" y="50" text-anchor="middle" class="flow-text">Manual build</text>
-        <text x="262" y="64" text-anchor="middle" class="flow-label">(no standard)</text>
-        <path d="M332,51 L372,51" class="flow-arrow"/>
-        <rect x="374" y="28" width="140" height="46" rx="7" class="flow-box risk"/>
-        <text x="444" y="50" text-anchor="middle" class="flow-text">Launch</text>
-        <text x="444" y="64" text-anchor="middle" class="flow-label">QA after send</text>
-        <path d="M514,51 L554,51" class="flow-arrow"/>
-        <rect x="556" y="28" width="150" height="46" rx="7" class="flow-box risk"/>
-        <text x="631" y="50" text-anchor="middle" class="flow-text">Errors surface</text>
-        <text x="631" y="64" text-anchor="middle" class="flow-label">rework, 3–4%</text>
+        <rect x="10" y="28" width="130" height="46" rx="7" class="flow-box"/>
+        <text x="75" y="56" text-anchor="middle" class="flow-text">Journey expires</text>
+        <path d="M140,51 L178,51" class="flow-arrow"/>
+        <rect x="180" y="28" width="150" height="46" rx="7" class="flow-box"/>
+        <text x="255" y="50" text-anchor="middle" class="flow-text">Copied &amp; reactivated</text>
+        <text x="255" y="64" text-anchor="middle" class="flow-label">(unaware team member)</text>
+        <path d="M330,51 L368,51" class="flow-arrow"/>
+        <rect x="370" y="28" width="170" height="46" rx="7" class="flow-box risk"/>
+        <text x="455" y="50" text-anchor="middle" class="flow-text">Dedup rules silently reset</text>
+        <path d="M540,51 L578,51" class="flow-arrow"/>
+        <rect x="580" y="28" width="150" height="46" rx="7" class="flow-box risk"/>
+        <text x="655" y="50" text-anchor="middle" class="flow-text">Duplicate mis-sends</text>
 
         <text x="10" y="130" class="flow-label">REDESIGNED PROCESS</text>
-        <rect x="10" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
-        <text x="80" y="163" text-anchor="middle" class="flow-text">Standard</text>
-        <text x="80" y="177" text-anchor="middle" class="flow-text">intake form</text>
-        <path d="M150,165 L190,165" class="flow-arrow"/>
-        <rect x="192" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
-        <text x="262" y="163" text-anchor="middle" class="flow-text">Build to</text>
-        <text x="262" y="177" text-anchor="middle" class="flow-text">named owner</text>
-        <path d="M332,165 L372,165" class="flow-arrow"/>
-        <rect x="374" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
-        <text x="444" y="163" text-anchor="middle" class="flow-text">Pre-launch QA</text>
-        <text x="444" y="177" text-anchor="middle" class="flow-text">checkpoint</text>
-        <path d="M514,165 L554,165" class="flow-arrow"/>
-        <rect x="556" y="140" width="150" height="50" rx="7" class="flow-box accent"/>
-        <text x="631" y="163" text-anchor="middle" class="flow-text">Launch</text>
-        <text x="631" y="177" text-anchor="middle" class="flow-text">error rate ↓</text>
-        <path d="M706,165 L746,165" class="flow-arrow"/>
-        <rect x="748" y="140" width="122" height="50" rx="7" class="flow-box"/>
-        <text x="809" y="163" text-anchor="middle" class="flow-text">Automated</text>
-        <text x="809" y="177" text-anchor="middle" class="flow-text">QA rules</text>
+        <rect x="10" y="140" width="150" height="50" rx="7" class="flow-box accent"/>
+        <text x="85" y="163" text-anchor="middle" class="flow-text">Journey expiration</text>
+        <text x="85" y="177" text-anchor="middle" class="flow-text">SOP</text>
+        <path d="M160,165 L198,165" class="flow-arrow"/>
+        <rect x="200" y="140" width="160" height="50" rx="7" class="flow-box accent"/>
+        <text x="280" y="163" text-anchor="middle" class="flow-text">Standardized</text>
+        <text x="280" y="177" text-anchor="middle" class="flow-text">copy/relaunch checklist</text>
+        <path d="M360,165 L398,165" class="flow-arrow"/>
+        <rect x="400" y="140" width="170" height="50" rx="7" class="flow-box accent"/>
+        <text x="485" y="163" text-anchor="middle" class="flow-text">Automated flag: contact</text>
+        <text x="485" y="177" text-anchor="middle" class="flow-text">already sent this email</text>
+        <path d="M570,165 L608,165" class="flow-arrow"/>
+        <rect x="610" y="140" width="140" height="50" rx="7" class="flow-box"/>
+        <text x="680" y="163" text-anchor="middle" class="flow-text">Launch</text>
+        <text x="680" y="177" text-anchor="middle" class="flow-text">verified, no dupes</text>
       </svg>
     </div>
 
@@ -264,16 +258,16 @@
     <div class="card">
       <table>
         <tr><th>Metric</th><th class="num">Before</th><th class="num">After</th><th class="num">Change</th></tr>
-        <tr><td>Journey error / rework rate</td><td class="num">3.6%</td><td class="num">0.9%</td><td class="num up">−75%</td></tr>
-        <tr><td>Avg. time to launch a journey</td><td class="num">6.5 days</td><td class="num">3 days</td><td class="num up">−54%</td></tr>
-        <tr><td>QA steps happening pre-launch</td><td class="num">1 of 5</td><td class="num">4 of 5</td><td class="num up">+300%</td></tr>
-        <tr><td>Journeys with a named owner</td><td class="num">40%</td><td class="num">100%</td><td class="num up">+150%</td></tr>
+        <tr><td>Duplicate mis-send incidents / quarter</td><td class="num">11</td><td class="num">1</td><td class="num up">−91%</td></tr>
+        <tr><td>Journey relaunches following the SOP</td><td class="num">~30%</td><td class="num">100%</td><td class="num up">+233%</td></tr>
+        <tr><td>Relaunches with an automated dedup flag check</td><td class="num">0%</td><td class="num">100%</td><td class="num up">—</td></tr>
+        <tr><td>New team members onboarded to the process</td><td class="num">Informal / tribal knowledge</td><td class="num">Documented SOP</td><td class="num up">—</td></tr>
       </table>
     </div>
 
     <div class="impact">
       <div class="block-label">Impact</div>
-      <p style="margin:0;">Moving QA earlier in the process — and giving every build a named owner and a standard intake — cut rework by three-quarters and roughly halved time-to-launch, without adding headcount.</p>
+      <p style="margin:0;">The root cause wasn't a lack of care — it was an undocumented platform behavior that new team members had no way to anticipate. Documenting it and backing it with an automated flag turned a recurring, hard-to-catch error into a near-zero-incident process.</p>
     </div>
   </section>
 
@@ -293,7 +287,7 @@
       </div>
       <div>
         <div class="block-label">Approach</div>
-        <p>Designed explicit routing logic that checks account match and segment before territory assignment, with defined fallback paths for unmatched and duplicate leads — instead of leaving edge cases to manual triage.</p>
+        <p>Designed explicit routing logic that checks account match and segment before territory assignment. For leads with no account match, built a zip-code-based fallback so every lead still reached an AE — and passed along the page the lead came from and the products they showed interest in, so AEs had real context instead of a bare name and email.</p>
       </div>
     </div>
 
@@ -329,9 +323,9 @@
         <rect x="466" y="232" width="204" height="46" rx="7" class="flow-box accent"/>
         <text x="568" y="256" text-anchor="middle" class="flow-text">Assign territory + notify AE</text>
 
-        <rect x="700" y="150" width="160" height="46" rx="7" class="flow-box risk"/>
-        <text x="780" y="174" text-anchor="middle" class="flow-text">Unmatched / duplicate</text>
-        <text x="780" y="188" text-anchor="middle" class="flow-label">flag to ops queue, 24h SLA</text>
+        <rect x="700" y="150" width="170" height="50" rx="7" class="flow-box accent"/>
+        <text x="785" y="171" text-anchor="middle" class="flow-text">No account match</text>
+        <text x="785" y="185" text-anchor="middle" class="flow-label">assign by zip code + context</text>
         <path d="M760,102 L800,150" class="flow-arrow"/>
       </svg>
     </div>
@@ -339,18 +333,17 @@
     <div class="block-label" style="margin-top:26px;">Sample routing outcomes</div>
     <div class="card">
       <table>
-        <tr><th>Scenario</th><th>Account match</th><th>Segment</th><th>Routed to</th></tr>
-        <tr><td>Lead A</td><td>Existing</td><td>Enterprise</td><td>Named account owner</td></tr>
-        <tr><td>Lead B</td><td>New</td><td>Mid-market</td><td>Territory rep, region 7</td></tr>
-        <tr><td>Lead C</td><td>New</td><td>SMB</td><td>Inside sales queue</td></tr>
-        <tr><td>Lead D</td><td>No match found</td><td>—</td><td>Ops review queue (24h SLA)</td></tr>
-        <tr><td>Lead E</td><td>Duplicate of Lead A</td><td>—</td><td>Merged, no new assignment</td></tr>
+        <tr><th>Scenario</th><th>Account match</th><th>Routed to</th><th>Context passed to AE</th></tr>
+        <tr><td>Lead A</td><td>Existing</td><td>Named account owner</td><td>Source page, product interest</td></tr>
+        <tr><td>Lead B</td><td>New</td><td>Territory rep, region 7</td><td>Source page, product interest</td></tr>
+        <tr><td>Lead C</td><td>No match found</td><td>AE assigned by zip code</td><td>Source page, product interest</td></tr>
+        <tr><td>Lead D</td><td>Duplicate of Lead A</td><td>Merged, no new assignment</td><td>—</td></tr>
       </table>
     </div>
 
     <div class="impact">
       <div class="block-label">Impact</div>
-      <p style="margin:0;">Giving unmatched and duplicate leads an explicit path — instead of letting them fall through — removed the manual triage bottleneck and gave every lead a routing decision within minutes of submission.</p>
+      <p style="margin:0;">Every lead reached an AE — even without an account match — through a zip-code fallback instead of sitting unassigned. Passing along the source page and product interest also meant AEs opened each lead already knowing what the prospect cared about, instead of starting cold.</p>
     </div>
   </section>
 
