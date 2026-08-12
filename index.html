@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Marketing Operations & Analytics Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F3;
+    --surface:#FFFFFF;
+    --ink:#16232E;
+    --muted:#5A6B78;
+    --line:#D8DEE3;
+    --accent:#2E7D6B;
+    --accent-soft:#E4F0EC;
+    --ok:#3F8F5F;
+    --warn:#C99A2E;
+    --risk:#C1503F;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0 0 .4em 0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:var(--accent);}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+
+  /* nav */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,241,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; flex-wrap:wrap; gap:10px;}
+  .nav-brand{display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--muted);}
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--ok); display:inline-block; box-shadow:0 0 0 3px var(--accent-soft);}
+  .nav-links{display:flex; gap:18px; flex-wrap:wrap;}
+  .nav-links a{
+    color:var(--ink); text-decoration:none; font-size:13px; font-family:'IBM Plex Mono', monospace;
+    padding:6px 10px; border-radius:6px; border:1px solid transparent;
+  }
+  .nav-links a:hover{border-color:var(--line); background:var(--surface);}
+
+  /* hero */
+  header.hero{padding:64px 0 40px;}
+  .console{
+    background:var(--ink); color:#EAF2EF; border-radius:var(--radius) var(--radius) 0 0;
+    padding:10px 16px; font-family:'IBM Plex Mono', monospace; font-size:12px;
+    display:flex; align-items:center; gap:8px; opacity:.92;
+  }
+  .console .chip{width:8px; height:8px; border-radius:50%; background:#5A6B78;}
+  .console .chip:nth-child(1){background:var(--risk);}
+  .console .chip:nth-child(2){background:var(--warn);}
+  .console .chip:nth-child(3){background:var(--ok);}
+  .console .path{margin-left:8px; color:#9FB4AC;}
+  .hero-body{
+    background:var(--surface); border:1px solid var(--line); border-top:none;
+    border-radius:0 0 var(--radius) var(--radius);
+    padding:36px 32px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;
+  }
+  h1{font-size:clamp(28px, 4vw, 40px);}
+  .role-line{color:var(--muted); font-size:17px; margin-bottom:18px;}
+  .value-prop{max-width:640px; font-size:16px; color:var(--ink);}
+
+  .status-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:28px;
+  }
+  .status-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; text-decoration:none; color:var(--ink); transition:transform .15s ease, border-color .15s ease;
+  }
+  .status-card:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .status-card .pill{
+    display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--ok); margin-bottom:8px;
+  }
+  .status-card .pill .dot{background:var(--ok);}
+  .status-card .title{font-size:13.5px; font-weight:600; line-height:1.3;}
+
+  /* sections */
+  section.case{padding:56px 0;}
+  section.case + section.case{border-top:1px solid var(--line);}
+  .case-head{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
+  .badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--muted);
+    border:1px solid var(--line); border-radius:20px; padding:4px 10px; white-space:nowrap;
+  }
+  .case-num{font-family:'IBM Plex Mono', monospace; color:var(--accent); font-size:13px; margin-bottom:6px; display:block;}
+  .disclaimer{
+    background:var(--accent-soft); border:1px solid #C9E2D9; color:#1F5445;
+    font-size:13px; border-radius:8px; padding:10px 14px; margin:16px 0 26px;
+  }
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:28px;}
+  @media (max-width:720px){ .two-col{grid-template-columns:1fr;} .status-strip{grid-template-columns:1fr 1fr;} }
+  .block-label{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--muted); margin-bottom:8px;
+  }
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px;}
+
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line);}
+  th{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; color:var(--muted); letter-spacing:.04em;}
+  td.num, th.num{font-family:'IBM Plex Mono', monospace; text-align:right;}
+  tr:last-child td{border-bottom:none;}
+  .up{color:var(--ok);} .down{color:var(--risk);}
+
+  .impact{
+    margin-top:22px; border-left:3px solid var(--accent); background:var(--accent-soft);
+    border-radius:0 8px 8px 0; padding:14px 18px;
+  }
+  .impact .block-label{color:var(--accent);}
+
+  svg{width:100%; height:auto; display:block;}
+  .flow-box{fill:var(--surface); stroke:var(--line); stroke-width:1.4;}
+  .flow-box.accent{stroke:var(--accent); fill:var(--accent-soft);}
+  .flow-box.risk{stroke:var(--risk); fill:#FBEAE7;}
+  .flow-text{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--ink);}
+  .flow-arrow{stroke:var(--muted); stroke-width:1.4; fill:none; marker-end:url(#arrow);}
+  .flow-label{font-family:'IBM Plex Mono', monospace; font-size:9.5px; fill:var(--muted);}
+
+  footer{padding:48px 0 70px; border-top:1px solid var(--line);}
+  footer .card{font-size:13px; color:var(--muted);}
+  .skills-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:8px;}
+  @media (max-width:820px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+  .skill{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px;}
+  .skill .k{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .skill .v{font-size:13px; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand"><span class="dot"></span> portfolio / marketing-ops</div>
+    <div class="nav-links">
+      <a href="#automation">Automation &amp; QA</a>
+      <a href="#routing">Lead Routing</a>
+      <a href="#performance">Performance Analysis</a>
+      <a href="#budget">Budget Allocation</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="console">
+      <span class="chip"></span><span class="chip"></span><span class="chip"></span>
+      <span class="path">~/portfolio/case-studies</span>
+    </div>
+    <div class="hero-body">
+      <div class="eyebrow">Independent case studies · synthetic data</div>
+      <h1>Your Name</h1>
+      <div class="role-line">Marketing Operations · Analytics · Process Optimization</div>
+      <p class="value-prop">I solve marketing problems through data, automation, and process design — the work that keeps campaigns accurate, budgets accountable, and leads moving. The four case studies below use fictional companies and synthetic numbers, built to demonstrate the way I actually work.</p>
+
+      <div class="status-strip">
+        <a class="status-card" href="#automation">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Automation &amp; QA Framework</div>
+        </a>
+        <a class="status-card" href="#routing">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Lead Routing Optimization</div>
+        </a>
+        <a class="status-card" href="#performance">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Diagnosing Performance Decline</div>
+        </a>
+        <a class="status-card" href="#budget">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Budget Allocation Optimization</div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CASE 1: AUTOMATION & QA -->
+  <section class="case" id="automation">
+    <span class="case-num">CASE STUDY 01</span>
+    <div class="case-head">
+      <h2>Reducing Errors in Marketing Automation</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>A B2B email program running 40 automated journeys to 250,000 contacts had a 3–4% average error / rework rate — wrong segments, broken personalization, mistimed sends — caused by manual builds, no standard intake process, and QA that happened after launch instead of before.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Mapped the current build process end-to-end, identified where errors actually originated, then redesigned the workflow around pre-launch checkpoints instead of post-launch fixes — with a standardized intake form, defined ownership at each stage, and automated QA rules where possible.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Current state → redesigned process</div>
+    <div class="card">
+      <svg viewBox="0 0 880 230" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5A6B78"/></marker>
+        </defs>
+        <text x="10" y="18" class="flow-label">CURRENT STATE</text>
+        <rect x="10" y="28" width="140" height="46" rx="7" class="flow-box"/>
+        <text x="80" y="56" text-anchor="middle" class="flow-text">Ad-hoc request</text>
+        <path d="M150,51 L190,51" class="flow-arrow"/>
+        <rect x="192" y="28" width="140" height="46" rx="7" class="flow-box risk"/>
+        <text x="262" y="50" text-anchor="middle" class="flow-text">Manual build</text>
+        <text x="262" y="64" text-anchor="middle" class="flow-label">(no standard)</text>
+        <path d="M332,51 L372,51" class="flow-arrow"/>
+        <rect x="374" y="28" width="140" height="46" rx="7" class="flow-box risk"/>
+        <text x="444" y="50" text-anchor="middle" class="flow-text">Launch</text>
+        <text x="444" y="64" text-anchor="middle" class="flow-label">QA after send</text>
+        <path d="M514,51 L554,51" class="flow-arrow"/>
+        <rect x="556" y="28" width="150" height="46" rx="7" class="flow-box risk"/>
+        <text x="631" y="50" text-anchor="middle" class="flow-text">Errors surface</text>
+        <text x="631" y="64" text-anchor="middle" class="flow-label">rework, 3–4%</text>
+
+        <text x="10" y="130" class="flow-label">REDESIGNED PROCESS</text>
+        <rect x="10" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
+        <text x="80" y="163" text-anchor="middle" class="flow-text">Standard</text>
+        <text x="80" y="177" text-anchor="middle" class="flow-text">intake form</text>
+        <path d="M150,165 L190,165" class="flow-arrow"/>
+        <rect x="192" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
+        <text x="262" y="163" text-anchor="middle" class="flow-text">Build to</text>
+        <text x="262" y="177" text-anchor="middle" class="flow-text">named owner</text>
+        <path d="M332,165 L372,165" class="flow-arrow"/>
+        <rect x="374" y="140" width="140" height="50" rx="7" class="flow-box accent"/>
+        <text x="444" y="163" text-anchor="middle" class="flow-text">Pre-launch QA</text>
+        <text x="444" y="177" text-anchor="middle" class="flow-text">checkpoint</text>
+        <path d="M514,165 L554,165" class="flow-arrow"/>
+        <rect x="556" y="140" width="150" height="50" rx="7" class="flow-box accent"/>
+        <text x="631" y="163" text-anchor="middle" class="flow-text">Launch</text>
+        <text x="631" y="177" text-anchor="middle" class="flow-text">error rate ↓</text>
+        <path d="M706,165 L746,165" class="flow-arrow"/>
+        <rect x="748" y="140" width="122" height="50" rx="7" class="flow-box"/>
+        <text x="809" y="163" text-anchor="middle" class="flow-text">Automated</text>
+        <text x="809" y="177" text-anchor="middle" class="flow-text">QA rules</text>
+      </svg>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Before / after</div>
+    <div class="card">
+      <table>
+        <tr><th>Metric</th><th class="num">Before</th><th class="num">After</th><th class="num">Change</th></tr>
+        <tr><td>Journey error / rework rate</td><td class="num">3.6%</td><td class="num">0.9%</td><td class="num up">−75%</td></tr>
+        <tr><td>Avg. time to launch a journey</td><td class="num">6.5 days</td><td class="num">3 days</td><td class="num up">−54%</td></tr>
+        <tr><td>QA steps happening pre-launch</td><td class="num">1 of 5</td><td class="num">4 of 5</td><td class="num up">+300%</td></tr>
+        <tr><td>Journeys with a named owner</td><td class="num">40%</td><td class="num">100%</td><td class="num up">+150%</td></tr>
+      </table>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Moving QA earlier in the process — and giving every build a named owner and a standard intake — cut rework by three-quarters and roughly halved time-to-launch, without adding headcount.</p>
+    </div>
+  </section>
+
+  <!-- CASE 2: LEAD ROUTING -->
+  <section class="case" id="routing">
+    <span class="case-num">CASE STUDY 02</span>
+    <div class="case-head">
+      <h2>Improving Lead Routing for a B2B Marketing Org</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>Leads moved from web form → CRM → sales, but with 15 territories, 3 customer segments, and a mix of existing and new accounts, routing logic broke down: unmatched leads sat unassigned and duplicate submissions created conflicting ownership.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Designed explicit routing logic that checks account match and segment before territory assignment, with defined fallback paths for unmatched and duplicate leads — instead of leaving edge cases to manual triage.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Routing logic</div>
+    <div class="card">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="150" height="46" rx="7" class="flow-box"/>
+        <text x="95" y="48" text-anchor="middle" class="flow-text">Website form</text>
+        <path d="M170,43 L206,43" class="flow-arrow"/>
+        <rect x="208" y="20" width="130" height="46" rx="7" class="flow-box"/>
+        <text x="273" y="48" text-anchor="middle" class="flow-text">CRM intake</text>
+        <path d="M338,43 L374,43" class="flow-arrow"/>
+        <rect x="376" y="20" width="160" height="46" rx="7" class="flow-box accent"/>
+        <text x="456" y="43" text-anchor="middle" class="flow-text">Account match?</text>
+
+        <path d="M456,66 L456,100" class="flow-arrow"/>
+        <text x="466" y="90" class="flow-label">yes</text>
+        <rect x="376" y="102" width="160" height="46" rx="7" class="flow-box"/>
+        <text x="456" y="126" text-anchor="middle" class="flow-text">Existing account</text>
+        <text x="456" y="140" text-anchor="middle" class="flow-label">route by owner</text>
+
+        <path d="M536,43 L680,43 L680,100" class="flow-arrow"/>
+        <text x="600" y="35" class="flow-label">no</text>
+        <rect x="600" y="102" width="160" height="46" rx="7" class="flow-box"/>
+        <text x="680" y="126" text-anchor="middle" class="flow-text">New account</text>
+        <text x="680" y="140" text-anchor="middle" class="flow-label">check segment</text>
+
+        <path d="M456,148 L456,184" class="flow-arrow"/>
+        <path d="M680,148 L680,184" class="flow-arrow"/>
+        <path d="M456,196 L680,196" stroke="#5A6B78" stroke-width="1.4" fill="none"/>
+        <path d="M568,196 L568,230" class="flow-arrow"/>
+        <rect x="440" y="196" width="256" height="0"/>
+        <rect x="466" y="232" width="204" height="46" rx="7" class="flow-box accent"/>
+        <text x="568" y="256" text-anchor="middle" class="flow-text">Assign territory + notify AE</text>
+
+        <rect x="700" y="150" width="160" height="46" rx="7" class="flow-box risk"/>
+        <text x="780" y="174" text-anchor="middle" class="flow-text">Unmatched / duplicate</text>
+        <text x="780" y="188" text-anchor="middle" class="flow-label">flag to ops queue, 24h SLA</text>
+        <path d="M760,102 L800,150" class="flow-arrow"/>
+      </svg>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Sample routing outcomes</div>
+    <div class="card">
+      <table>
+        <tr><th>Scenario</th><th>Account match</th><th>Segment</th><th>Routed to</th></tr>
+        <tr><td>Lead A</td><td>Existing</td><td>Enterprise</td><td>Named account owner</td></tr>
+        <tr><td>Lead B</td><td>New</td><td>Mid-market</td><td>Territory rep, region 7</td></tr>
+        <tr><td>Lead C</td><td>New</td><td>SMB</td><td>Inside sales queue</td></tr>
+        <tr><td>Lead D</td><td>No match found</td><td>—</td><td>Ops review queue (24h SLA)</td></tr>
+        <tr><td>Lead E</td><td>Duplicate of Lead A</td><td>—</td><td>Merged, no new assignment</td></tr>
+      </table>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Giving unmatched and duplicate leads an explicit path — instead of letting them fall through — removed the manual triage bottleneck and gave every lead a routing decision within minutes of submission.</p>
+    </div>
+  </section>
+
+  <!-- CASE 3: PERFORMANCE DECLINE -->
+  <section class="case" id="performance">
+    <span class="case-num">CASE STUDY 03</span>
+    <div class="case-head">
+      <h2>Diagnosing a Decline in Email Campaign Performance</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>Over 12 months, open rate fell from 27% to 19% and conversion rate fell from 1.1% to 0.6%, even as send volume grew. Leadership wanted to know why — and what to do about it.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Segmented the decline by audience, device, and campaign type instead of treating it as one problem. The drop wasn't even: one segment and one campaign type accounted for most of the loss.</p>
+      </div>
+    </div>
+
+    <div class="block-label">12-month trend</div>
+    <div class="card">
+      <canvas id="perfChart" height="180"></canvas>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Root cause breakdown</div>
+    <div class="card">
+      <table>
+        <tr><th>Contributing factor</th><th class="num">Share of decline</th></tr>
+        <tr><td>One underperforming segment (re-engagement list)</td><td class="num">42%</td></tr>
+        <tr><td>Send frequency increase (+35% sends, same list)</td><td class="num">27%</td></tr>
+        <tr><td>Mobile rendering issues on one template</td><td class="num">19%</td></tr>
+        <tr><td>Other / seasonal</td><td class="num">12%</td></tr>
+      </table>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Nearly 70% of the decline traced to two fixable causes — one list and one template — rather than a broad loss of interest. Recommendation: suppress the re-engagement list from high-frequency sends and fix mobile rendering before making any content or offer changes.</p>
+    </div>
+  </section>
+
+  <!-- CASE 4: BUDGET ALLOCATION -->
+  <section class="case" id="budget">
+    <span class="case-num">CASE STUDY 04</span>
+    <div class="case-head">
+      <h2>Where Should the Next $100K Go?</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>A $750K marketing budget was spread across five channels with very different cost-per-opportunity. Leadership had $100K left to allocate and no agreed framework for where it should go.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>The right answer depends on what the business is optimizing for — lead volume, pipeline, cost efficiency, or strategic accounts. I modeled all four so leadership could choose the priority, not just the number.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Channel performance</div>
+    <div class="card">
+      <table>
+        <tr><th>Channel</th><th class="num">Spend</th><th class="num">Leads</th><th class="num">CPL</th><th class="num">Opportunities</th><th class="num">Cost / Opp</th></tr>
+        <tr><td>Paid Search</td><td class="num">$200K</td><td class="num">4,000</td><td class="num">$50</td><td class="num">180</td><td class="num">$1,111</td></tr>
+        <tr><td>Paid Social</td><td class="num">$150K</td><td class="num">3,500</td><td class="num">$43</td><td class="num">90</td><td class="num">$1,667</td></tr>
+        <tr><td>Display</td><td class="num">$100K</td><td class="num">2,000</td><td class="num">$50</td><td class="num">40</td><td class="num">$2,500</td></tr>
+        <tr><td>Content</td><td class="num">$150K</td><td class="num">1,500</td><td class="num">$100</td><td class="num">120</td><td class="num">$1,250</td></tr>
+        <tr><td>Events</td><td class="num">$150K</td><td class="num">800</td><td class="num">$188</td><td class="num">160</td><td class="num">$938</td></tr>
+      </table>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Cost per opportunity by channel</div>
+    <div class="card">
+      <canvas id="budgetChart" height="180"></canvas>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">The recommendation changes with the priority</div>
+    <div class="card">
+      <table>
+        <tr><th>If the priority is...</th><th>Recommended allocation</th><th>Why</th></tr>
+        <tr><td>Lead volume</td><td>Paid Search</td><td>Highest raw lead count at a moderate CPL</td></tr>
+        <tr><td>Pipeline / opportunities</td><td>Events</td><td>Lowest cost per opportunity, despite highest CPL</td></tr>
+        <tr><td>Cost efficiency</td><td>Events, then Paid Search</td><td>Best and second-best cost/opportunity</td></tr>
+        <tr><td>Strategic accounts</td><td>Events + Content</td><td>Both over-index on account-based, high-intent buyers</td></tr>
+      </table>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Events looked expensive by cost-per-lead but was the most efficient channel by cost-per-opportunity — the opposite of what a volume-only view would suggest. Framing the decision by business priority, not just spend, changed the recommendation leadership actually made.</p>
+    </div>
+  </section>
+
+  <section id="skills" style="padding:56px 0; border-top:1px solid var(--line);">
+    <div class="block-label">T-shaped skill set</div>
+    <h2 style="margin-bottom:6px;">Marketing, backed by data, technology, and operations</h2>
+    <p style="max-width:640px; color:var(--muted); margin-top:0;">The common thread across these case studies: understanding the marketing problem, then using data, systems, and process design to actually fix it.</p>
+    <div class="skills-grid">
+      <div class="skill"><div class="k">Marketing</div><div class="v">Campaigns, channels, stakeholders, objectives</div></div>
+      <div class="skill"><div class="k">Data</div><div class="v">Performance analysis, root-cause diagnosis</div></div>
+      <div class="skill"><div class="k">Technology</div><div class="v">Marketing Cloud, CRM, SQL, automation</div></div>
+      <div class="skill"><div class="k">Operations</div><div class="v">Process design, QA, governance</div></div>
+      <div class="skill"><div class="k">Leadership</div><div class="v">Coordinating stakeholders &amp; agencies</div></div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="card">
+      All figures across these four case studies are synthetic and illustrative. No confidential, proprietary, or employer-owned data is used or represented here. This site demonstrates methodology, not real business results.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  const gridColor = '#D8DEE3';
+  const inkColor = '#16232E';
+  const mutedColor = '#5A6B78';
+
+  new Chart(document.getElementById('perfChart'), {
+    type: 'line',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      datasets: [
+        { label: 'Open rate %', data: [27,26,25.5,24,23,22.5,21.5,21,20.5,20,19.5,19], borderColor:'#2E7D6B', backgroundColor:'#2E7D6B', tension:.3, pointRadius:2 },
+        { label: 'CTR %', data: [3.4,3.2,3.1,3.0,2.9,2.8,2.6,2.5,2.4,2.3,2.2,2.1], borderColor:'#C99A2E', backgroundColor:'#C99A2E', tension:.3, pointRadius:2 },
+        { label: 'Conversion %', data: [1.1,1.0,1.0,0.95,0.9,0.85,0.8,0.75,0.7,0.65,0.6,0.6], borderColor:'#C1503F', backgroundColor:'#C1503F', tension:.3, pointRadius:2 }
+      ]
+    },
+    options: {
+      responsive:true,
+      plugins:{ legend:{ position:'bottom', labels:{ color: inkColor, font:{family:"IBM Plex Mono", size:11} } } },
+      scales:{
+        x:{ grid:{ color: gridColor }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } },
+        y:{ grid:{ color: gridColor }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('budgetChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Paid Search','Paid Social','Display','Content','Events'],
+      datasets: [{
+        label: 'Cost per opportunity ($)',
+        data: [1111,1667,2500,1250,938],
+        backgroundColor: ['#2E7D6B','#2E7D6B','#C1503F','#2E7D6B','#3F8F5F']
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{ legend:{ display:false } },
+      scales:{
+        x:{ grid:{ display:false }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } },
+        y:{ grid:{ color: gridColor }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
