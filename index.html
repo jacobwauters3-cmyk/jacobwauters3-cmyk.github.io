@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,7 +141,7 @@
 
   footer{padding:48px 0 70px; border-top:1px solid var(--line);}
   footer .card{font-size:13px; color:var(--muted);}
-  .skills-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:8px;}
+  .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:8px;}
   @media (max-width:820px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
   @media (min-width:821px) and (max-width:1000px){.skills-grid{grid-template-columns:repeat(3,1fr);}}
   .skill{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px;}
@@ -157,9 +158,9 @@
       <a href="#automation">Automation &amp; QA</a>
       <a href="#routing">Lead Routing</a>
       <a href="#performance">Performance Analysis</a>
-      <a href="#budget">Budget Allocation</a>
       <a href="#channel">Channel Strategy</a>
       <a href="#migration">Website Migration</a>
+      <a href="#seo">Technical SEO</a>
       <a href="#skills">Skills</a>
     </div>
   </div>
@@ -175,7 +176,7 @@
       <div class="eyebrow">Independent case studies · synthetic data</div>
       <h1>Jacob Wauters</h1>
       <div class="role-line">Marketing Operations · Analytics · Process Optimization</div>
-      <p class="value-prop">I solve marketing problems through data, automation, and process design — the work that keeps campaigns accurate, budgets accountable, and leads moving. The four case studies below use fictional companies and synthetic numbers, built to demonstrate the way I actually work.</p>
+      <p class="value-prop">I solve marketing problems through data, automation, and process design — the work that keeps campaigns accurate, budgets accountable, and leads moving. The six case studies below use fictional companies and synthetic numbers, built to demonstrate the way I actually work.</p>
 
       <div class="status-strip">
         <a class="status-card" href="#automation">
@@ -190,10 +191,6 @@
           <div class="pill"><span class="dot"></span> RESOLVED</div>
           <div class="title">Diagnosing Performance Decline</div>
         </a>
-        <a class="status-card" href="#budget">
-          <div class="pill"><span class="dot"></span> RESOLVED</div>
-          <div class="title">Budget Allocation Optimization</div>
-        </a>
         <a class="status-card" href="#channel">
           <div class="pill"><span class="dot"></span> RESOLVED</div>
           <div class="title">Product Launch Channel Strategy</div>
@@ -201,6 +198,10 @@
         <a class="status-card" href="#migration">
           <div class="pill"><span class="dot"></span> RESOLVED</div>
           <div class="title">Enterprise Hosting Migration</div>
+        </a>
+        <a class="status-card" href="#seo">
+          <div class="pill"><span class="dot"></span> RESOLVED</div>
+          <div class="title">Technical SEO &amp; Performance</div>
         </a>
       </div>
     </div>
@@ -400,63 +401,9 @@
     </div>
   </section>
 
-  <!-- CASE 4: BUDGET ALLOCATION -->
-  <section class="case" id="budget">
-    <span class="case-num">CASE STUDY 04</span>
-    <div class="case-head">
-      <h2>Where Should the Next $100K Go?</h2>
-      <span class="badge">Fictional company · Synthetic data</span>
-    </div>
-    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
-
-    <div class="two-col">
-      <div>
-        <div class="block-label">Problem</div>
-        <p>A $750K marketing budget was spread across five channels with very different cost-per-opportunity. Leadership had $100K left to allocate and no agreed framework for where it should go.</p>
-      </div>
-      <div>
-        <div class="block-label">Approach</div>
-        <p>The right answer depends on what the business is optimizing for — lead volume, pipeline, cost efficiency, or strategic accounts. I modeled all four so leadership could choose the priority, not just the number.</p>
-      </div>
-    </div>
-
-    <div class="block-label">Channel performance</div>
-    <div class="card">
-      <table>
-        <tr><th>Channel</th><th class="num">Spend</th><th class="num">Leads</th><th class="num">CPL</th><th class="num">Opportunities</th><th class="num">Cost / Opp</th></tr>
-        <tr><td>Paid Search</td><td class="num">$200K</td><td class="num">4,000</td><td class="num">$50</td><td class="num">180</td><td class="num">$1,111</td></tr>
-        <tr><td>Paid Social</td><td class="num">$150K</td><td class="num">3,500</td><td class="num">$43</td><td class="num">90</td><td class="num">$1,667</td></tr>
-        <tr><td>Display</td><td class="num">$100K</td><td class="num">2,000</td><td class="num">$50</td><td class="num">40</td><td class="num">$2,500</td></tr>
-        <tr><td>Content</td><td class="num">$150K</td><td class="num">1,500</td><td class="num">$100</td><td class="num">120</td><td class="num">$1,250</td></tr>
-        <tr><td>Events</td><td class="num">$150K</td><td class="num">800</td><td class="num">$188</td><td class="num">160</td><td class="num">$938</td></tr>
-      </table>
-    </div>
-
-    <div class="block-label" style="margin-top:26px;">Cost per opportunity by channel</div>
-    <div class="card">
-      <canvas id="budgetChart" height="180"></canvas>
-    </div>
-
-    <div class="block-label" style="margin-top:26px;">The recommendation changes with the priority</div>
-    <div class="card">
-      <table>
-        <tr><th>If the priority is...</th><th>Recommended allocation</th><th>Why</th></tr>
-        <tr><td>Lead volume</td><td>Paid Search</td><td>Highest raw lead count at a moderate CPL</td></tr>
-        <tr><td>Pipeline / opportunities</td><td>Events</td><td>Lowest cost per opportunity, despite highest CPL</td></tr>
-        <tr><td>Cost efficiency</td><td>Events, then Paid Search</td><td>Best and second-best cost/opportunity</td></tr>
-        <tr><td>Strategic accounts</td><td>Events + Content</td><td>Both over-index on account-based, high-intent buyers</td></tr>
-      </table>
-    </div>
-
-    <div class="impact">
-      <div class="block-label">Impact</div>
-      <p style="margin:0;">Events looked expensive by cost-per-lead but was the most efficient channel by cost-per-opportunity — the opposite of what a volume-only view would suggest. Framing the decision by business priority, not just spend, changed the recommendation leadership actually made.</p>
-    </div>
-  </section>
-
-  <!-- CASE 5: CHANNEL STRATEGY -->
+  <!-- CASE 4: CHANNEL STRATEGY -->
   <section class="case" id="channel">
-    <span class="case-num">CASE STUDY 05</span>
+    <span class="case-num">CASE STUDY 04</span>
     <div class="case-head">
       <h2>Channel Strategy for a New Product Launch</h2>
       <span class="badge">Fictional company · Synthetic data</span>
@@ -529,9 +476,9 @@
     </div>
   </section>
 
-  <!-- CASE 6: HOSTING MIGRATION -->
+  <!-- CASE 5: HOSTING MIGRATION -->
   <section class="case" id="migration">
-    <span class="case-num">CASE STUDY 06</span>
+    <span class="case-num">CASE STUDY 05</span>
     <div class="case-head">
       <h2>Migrating a Brand Site to Enterprise Hosting</h2>
       <span class="badge">Fictional company · Synthetic data</span>
@@ -615,11 +562,67 @@
     </div>
   </section>
 
+  <!-- CASE 6: TECHNICAL SEO -->
+  <section class="case" id="seo">
+    <span class="case-num">CASE STUDY 06</span>
+    <div class="case-head">
+      <h2>Technical SEO &amp; Site Performance Audit</h2>
+      <span class="badge">Fictional company · Synthetic data</span>
+    </div>
+    <div class="disclaimer">This case study uses a fictional company and synthetic data. The methodology reflects the type of analytical, operational, and technical marketing work I've done professionally, without using confidential employer information.</div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Problem</div>
+        <p>Organic traffic had been flat for two quarters despite steady content output. Core Web Vitals were failing on mobile, on-page SEO and accessibility hadn't been audited in over a year, and legacy plugins were adding render-blocking scripts no one had flagged.</p>
+      </div>
+      <div>
+        <div class="block-label">Approach</div>
+        <p>Benchmarked Core Web Vitals and ran a full on-page SEO and accessibility audit. Fixed what I could directly in the front-end, partnered with the dev agency on backend changes like schema markup and removing plugins that were hurting performance, and paired it with keyword research, ongoing rank monitoring, and content optimization.</p>
+      </div>
+    </div>
+
+    <div class="block-label">Audit findings &amp; ownership</div>
+    <div class="card">
+      <table>
+        <tr><th>Area</th><th>Finding</th><th>Fixed by</th></tr>
+        <tr><td>Core Web Vitals (LCP)</td><td>Largest images not compressed or lazy-loaded</td><td>Self — front-end</td></tr>
+        <tr><td>Core Web Vitals (CLS)</td><td>Ad slots and embeds shifting layout on load</td><td>Self — front-end</td></tr>
+        <tr><td>Structured data</td><td>Missing / incorrect schema markup on key templates</td><td>Dev agency — backend</td></tr>
+        <tr><td>Site performance</td><td>Legacy plugins adding render-blocking scripts</td><td>Dev agency — removed</td></tr>
+        <tr><td>On-page SEO</td><td>Duplicate meta descriptions, thin content on key pages</td><td>Self — content optimization</td></tr>
+        <tr><td>Accessibility</td><td>Missing alt text, low-contrast text on CTAs</td><td>Self — front-end</td></tr>
+        <tr><td>Keyword strategy</td><td>Targeting hadn't been revisited in 12+ months</td><td>Self — research &amp; monitoring</td></tr>
+      </table>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Core Web Vitals, before / after</div>
+    <div class="card">
+      <table>
+        <tr><th>Metric</th><th class="num">Threshold</th><th class="num">Before</th><th class="num">After</th></tr>
+        <tr><td>LCP (Largest Contentful Paint)</td><td class="num">≤ 2.5s</td><td class="num down">4.1s</td><td class="num up">2.2s</td></tr>
+        <tr><td>INP (Interaction to Next Paint)</td><td class="num">≤ 200ms</td><td class="num down">340ms</td><td class="num up">180ms</td></tr>
+        <tr><td>CLS (Cumulative Layout Shift)</td><td class="num">≤ 0.1</td><td class="num down">0.24</td><td class="num up">0.06</td></tr>
+      </table>
+    </div>
+
+    <div class="block-label" style="margin-top:26px;">Organic traffic, 6 months post-fix</div>
+    <div class="card">
+      <canvas id="seoChart" height="180"></canvas>
+    </div>
+
+    <div class="impact">
+      <div class="block-label">Impact</div>
+      <p style="margin:0;">Passing Core Web Vitals thresholds on mobile combined with the on-page and content fixes turned two quarters of flat organic traffic into steady month-over-month growth — without a new content strategy, just fixing what was actively working against the content already there.</p>
+    </div>
+  </section>
+
   <section id="skills" style="padding:56px 0; border-top:1px solid var(--line);">
     <div class="block-label">T-shaped skill set</div>
     <h2 style="margin-bottom:6px;">Marketing, backed by data, technology, and operations</h2>
     <p style="max-width:640px; color:var(--muted); margin-top:0;">The common thread across these case studies: understanding the marketing problem, then using data, systems, and process design to actually fix it.</p>
     <div class="skills-grid">
+      <div class="skill"><div class="k">SEO &amp; Content</div><div class="v">Technical SEO audits, Core Web Vitals, keyword strategy</div></div>
       <div class="skill"><div class="k">Marketing</div><div class="v">Campaigns, channel strategy, phased launches</div></div>
       <div class="skill"><div class="k">Data</div><div class="v">Performance analysis, root-cause diagnosis, segmentation</div></div>
       <div class="skill"><div class="k">Technology</div><div class="v">Marketing Cloud, CRM, SQL, automation</div></div>
@@ -664,21 +667,19 @@
     }
   });
 
-  new Chart(document.getElementById('budgetChart'), {
-    type: 'bar',
+  new Chart(document.getElementById('seoChart'), {
+    type: 'line',
     data: {
-      labels: ['Paid Search','Paid Social','Display','Content','Events'],
-      datasets: [{
-        label: 'Cost per opportunity ($)',
-        data: [1111,1667,2500,1250,938],
-        backgroundColor: ['#2E7D6B','#2E7D6B','#C1503F','#2E7D6B','#3F8F5F']
-      }]
+      labels: ['Month 1','Month 2','Month 3 (fixes shipped)','Month 4','Month 5','Month 6'],
+      datasets: [
+        { label: 'Organic sessions (indexed)', data: [100,98,104,118,133,149], borderColor:'#2E7D6B', backgroundColor:'#2E7D6B', tension:.3, pointRadius:2 }
+      ]
     },
-    options:{
+    options: {
       responsive:true,
-      plugins:{ legend:{ display:false } },
+      plugins:{ legend:{ position:'bottom', labels:{ color: inkColor, font:{family:"IBM Plex Mono", size:11} } } },
       scales:{
-        x:{ grid:{ display:false }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } },
+        x:{ grid:{ color: gridColor }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } },
         y:{ grid:{ color: gridColor }, ticks:{ color: mutedColor, font:{family:"IBM Plex Mono", size:10} } }
       }
     }
