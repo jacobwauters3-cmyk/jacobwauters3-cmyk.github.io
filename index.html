@@ -147,6 +147,18 @@
   .skill{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px;}
   .skill .k{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
   .skill .v{font-size:13px; color:var(--muted);}
+
+  @media print{
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    nav{ display:none; }
+    .console{ display:none; }
+    .hero-body{ border-radius:var(--radius); border-top:1px solid var(--line); padding:24px; }
+    header.hero{ padding:20px 0 10px; }
+    section.case{ padding:24px 0; page-break-inside:avoid; break-inside:avoid; }
+    section.case + section.case{ page-break-before:always; break-before:page; border-top:none; }
+    .status-card:hover{ transform:none; }
+    .card, table{ page-break-inside:avoid; break-inside:avoid; }
+  }
 </style>
 </head>
 <body>
@@ -295,7 +307,7 @@
     <div class="two-col">
       <div>
         <div class="block-label">Problem</div>
-        <p>The existing lead routing process was not functioning as intended, causing new leads to be assigned to a queue that was not actively monitored or worked. As a result, leads could sit untouched instead of reaching the appropriate sales team, creating delays in follow-up and putting potential opportunities at risk. The issue required coordination across Sales, the Sales Business Office, and CRM product owners to identify the breakdown and establish a more reliable routing process.</p>
+        <p>Leads moved from web form → CRM → sales, but with 15 territories, 3 customer segments, and a mix of existing and new accounts, routing logic broke down: unmatched leads sat unassigned and duplicate submissions created conflicting ownership.</p>
       </div>
       <div>
         <div class="block-label">Approach</div>
